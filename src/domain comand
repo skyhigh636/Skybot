@@ -1,0 +1,1 @@
+ngrok http --url=up-man-peaceful.ngrok-free.app 80
