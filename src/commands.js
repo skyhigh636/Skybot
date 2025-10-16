@@ -1,6 +1,6 @@
 import 'dotenv/config';
-import {getRPSChoices,RollDice} from './game.js';
-import {capitalize, InstallGlobalCommands,DiscordRequest} from './utils.js';
+import {getRPSChoices, RollDice} from './game.js';
+import {capitalize, InstallGlobalCommands, DiscordRequest} from './utils.js';
 
 // Get the game choices from game.js
 function createCommandChoices() {
@@ -42,40 +42,45 @@ const CHALLENGE_COMMAND = {
     integration_types: [0, 1],
     contexts: [0, 2],
 };
+const test = {
+    name: 'test',
+    description: 'A test command',
 
+}
 const ROLL_COMMAND = {
-        name: 'roll',
-        description: 'Roll a dice',
-        options: [
-            {
-                type: 4, // Integer type
-                name: 'sides',
-                description: 'Number of sides on the dice',
-                required: false,
-            },
-            {
-                type: 3,// String type
-                name: 'wager',
-                description: 'Put something at stake',
-                required: false,
-            },
-            {
-                type: 4,
-                name: 'desired',
-                description: 'Desired outcome of the roll',
-                required: false,
+    name: 'roll',
+    description: 'Roll a dice',
+    options: [
+        {
+            type: 4, // Integer type
+            name: 'sides',
+            description: 'Number of sides on the dice',
+            required: false,
+        },
+        {
+            type: 3,// String type
+            name: 'wager',
+            description: 'Put something at stake',
+            required: false,
+        },
+        {
+            type: 4,
+            name: 'desired',
+            description: 'Desired outcome of the roll',
+            required: false,
 
-            }
+        }
 
-        ],
-        type: 1,
-        integration_types: [0, 1],
-        contexts: [0,  2]
-    };
+    ],
+    type: 1,
+    integration_types: [0, 1],
+    contexts: [0, 2]
+};
 
-const ALL_COMMANDS = [ CHALLENGE_COMMAND, ROLL_COMMAND];
+const ALL_COMMANDS = [CHALLENGE_COMMAND, ROLL_COMMAND, test];
 
-// commands.js - Add this at the bottom to see if commands are getting registered
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS)
     .then(() => console.log('Commands successfully registered'))
     .catch(err => console.error('Error registering commands:', err));
+
+
