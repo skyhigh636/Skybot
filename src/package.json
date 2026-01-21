@@ -11,7 +11,7 @@
   "scripts": {
     "start": "./start.sh",
     "register": "node src/commands.js",
-    "dev": "nodemon src/app.js"    
+    "dev": "nodemon src/app.js",    
   },
   "author": "Shay DeWael",
   "license": "MIT",
