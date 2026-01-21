@@ -9,9 +9,7 @@
     "node": ">=18.x"
   },
   "scripts": {
-    "start": "./start.sh",
-    "register": "node src/commands.js",
-    "dev": "nodemon src/app.js",    
+    "start": "node src/app.js"
   },
   "author": "Shay DeWael",
   "license": "MIT",
