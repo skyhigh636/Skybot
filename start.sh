@@ -1,2 +1,2 @@
 #!/bin/bash
-node src/app.js
+exec /usr/local/bin/node src/app.js
