@@ -366,6 +366,5 @@ app.get('/health', (req, res) => {
 
 // Explicitly bind to 0.0.0.0 to accept external connections
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Listening on port ${PORT}`);
-    console.log(`Health check:  http://localhost:${PORT}/health`);
+    console.log('Listening on port', PORT);
 });
