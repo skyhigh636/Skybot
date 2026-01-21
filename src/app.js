@@ -45,6 +45,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
         // "test" command
         if (name === 'test') {
             // Send a message into the channel where command was triggered from
+            console.log("Test command recieved");
             return res.send({
                 type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
                 data: {
@@ -53,7 +54,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
                         {
                             type: MessageComponentTypes.TEXT_DISPLAY,
                             // Fetches a random emoji to send from a helper function
-                            content: `existing in the big 2025🙏🙏🥀🥀sybau ts pmo icl why u pmo 🥀🥀🥀🥀🥀🥀🏚🏚🏚🏚🏚MANGO MANGO MANGO😈😈noradrenaline still water sigma skibidi chad sigma boy Trollface BOII WHAT DID YOU SAY ABOUT PHONK😈😈🔥🔥  ${getRandomEmoji()}`
+                            content: `existing in the big 2026🙏🙏🥀🥀sybau ts pmo icl why u pmo 🥀🥀🥀🥀🥀🥀🏚🏚🏚🏚🏚MANGO MANGO MANGO😈😈noradrenaline still water sigma skibidi chad sigma boy Trollface BOII WHAT DID YOU SAY ABOUT PHONK😈😈🔥🔥  ${getRandomEmoji()}`
                         }
                     ]
                 },
@@ -350,6 +351,21 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
 });
 
 
-app.listen(PORT, () => {
-    console.log('Listening on port', PORT);
+// Health check endpoints (add before app.listen)
+app.get('/', (req, res) => {
+    res.send('Discord bot server is running! 🤖');
+});
+
+app.get('/health', (req, res) => {
+    res.json({ 
+        status: 'ok', 
+        timestamp: new Date().toISOString(),
+        activeGames: Object.keys(activeGames).length 
+    });
+});
+
+// Explicitly bind to 0.0.0.0 to accept external connections
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Listening on port ${PORT}`);
+    console.log(`Health check:  http://localhost:${PORT}/health`);
 });
