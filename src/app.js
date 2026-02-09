@@ -1,5 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
+import { readFileSync } from 'fs';
+import FormData from 'form-data';   
 import {
     ButtonStyleTypes,
     InteractionResponseFlags,
@@ -8,8 +10,8 @@ import {
     MessageComponentTypes,
     verifyKeyMiddleware,
 } from 'discord-interactions';
-import {getRandomEmoji, DiscordRequest} from './utils.js';
-import {getShuffledOptions, getResult, RollDice} from './game.js';
+import { getRandomEmoji, DiscordRequest } from './utils.js';
+import { getShuffledOptions, getResult, RollDice } from './game.js';
 
 // Create an express app
 const app = express();
@@ -25,13 +27,13 @@ const activeGames = {};
 app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async function
     (req, res) {
     // Interaction id, type and data
-    const {id, type, data} = req.body;
+    const { id, type, data } = req.body;
 
     /**
      * Handle verification requests
      */
     if (type === InteractionType.PING) {
-        return res.send({type: InteractionResponseType.PONG});
+        return res.send({ type: InteractionResponseType.PONG });
     }
 
     /**
@@ -39,7 +41,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
      * See https://discord.com/developers/docs/interactions/application-commands#slash-commands
      */
     if (type === InteractionType.APPLICATION_COMMAND) {
-        const {name} = data;
+        const { name } = data;
 
 
         // "test" command
@@ -125,7 +127,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
         if (name === 'roll') {
 
             // Get options from data
-            const sides = req.body.data.options?.find(opt => opt.name === 'sides')?.value ;
+            const sides = req.body.data.options?.find(opt => opt.name === 'sides')?.value;
             const wager = req.body.data.options?.find(opt => opt.name === 'wager')?.value;
             const desired = req.body.data.options?.find(opt => opt.name === 'desired')?.value;
             console.log("Rolling", sides, wager);
@@ -166,8 +168,20 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
             });
         }
 
+        if (name === 'heckle') {
+            console.log("heckling");
+
+
+            const form = new FormData();
+            form.append('files[0]', readFileSync('./images/cityboy.gif'), 'CITY BOY!');
+            form.append('payload_json', JSON.stringify({
+                content: "CITY BOY FOUN"
+            }));
+
+        }
+
         console.error(`unknown command: ${name}`);
-        return res.status(400).json({error: 'unknown command'});
+        return res.status(400).json({ error: 'unknown command' });
     }
 
     if (type === InteractionType.MESSAGE_COMPONENT) {
@@ -175,7 +189,11 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
         // custom_id set in payload when sending message component
         const componentId = data.custom_id;
 
-
+        /* handling responses for buttons
+            accept button for challenges - makes sure games can only be accepted by the user challenged
+            select choice dropdown for rock paper scissors - retrieves choices from both users and gets result
+            roll button for result formatting and reroll
+        */
         if (componentId.startsWith('accept_button_')) {
 
             const gameId = componentId.replace('accept_button_', '');
@@ -240,7 +258,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
                     },
                 });
                 // Delete previous message
-                await DiscordRequest(endpoint, {method: 'DELETE'});
+                await DiscordRequest(endpoint, { method: 'DELETE' });
             } catch (err) {
                 console.error('Error sending message:', err);
             }
@@ -345,10 +363,16 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
                 });
             }
         }
+
     }
+
+
     console.error('unknown interaction type', type);
-    return res.status(400).json({error: 'unknown interaction type'});
+    return res.status(400).json({ error: 'unknown interaction type' });
 });
+
+
+
 
 
 // Health check endpoints (add before app.listen)
@@ -357,10 +381,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-    res.json({ 
-        status: 'ok', 
+    res.json({
+        status: 'ok',
         timestamp: new Date().toISOString(),
-        activeGames: Object.keys(activeGames).length 
+        activeGames: Object.keys(activeGames).length
     });
 });
 
