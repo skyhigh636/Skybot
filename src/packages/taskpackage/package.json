@@ -5,6 +5,7 @@
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "build": "node /home/emmy/Skybot/src/Core/app.js",
-    "deploy": "ngrok http 5902 --url https://up-man-peaceful.ngrok-free.app"
+    "deploy": "ngrok http 5902 --url https://up-man-peaceful.ngrok-free.app",
+    "lint": "npx eslint /home/emmy/Skybot/src/Core/**"
   }
 }
