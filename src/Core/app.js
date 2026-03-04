@@ -10,8 +10,8 @@ import {
     MessageComponentTypes,
     verifyKeyMiddleware,
 } from 'discord-interactions';
-import { getRandomEmoji, DiscordRequest } from '../src/utils.js';
-import { getShuffledOptions, getResult, RollDice } from '../src/Core/game.js';
+import { getRandomEmoji, DiscordRequest } from '../utils.js';
+import { getShuffledOptions, getResult, RollDice } from './game.js';
 
 // Create an express app
 //const app = express();
@@ -29,7 +29,7 @@ const activeGames = {};
  */
 export default function handler(req, res) {
 
-    if (req.method !== POST) {
+    if (req.method !== 'POST') {
         return res.status(405).send("Method not allowed");
     }
 
@@ -185,7 +185,7 @@ export default function handler(req, res) {
                 });
             }
 
-            if (name === 'heckle') {
+          /*  if (name === 'heckle') {
                 console.log("heckling");
 
 
@@ -195,7 +195,7 @@ export default function handler(req, res) {
                     content: "CITY BOY FOUN"
                 }));
 
-            }
+            }*/
 
             console.error(`unknown command: ${name}`);
             return res.status(400).json({ error: 'unknown command' });
@@ -390,9 +390,10 @@ export default function handler(req, res) {
 
 
 
-
+}
 
     // Health check endpoints (add before app.listen)
+    /*
     app.get('/', (req, res) => {
         res.send('Discord bot server is running! 🤖');
     });
@@ -409,4 +410,5 @@ export default function handler(req, res) {
     app.listen(PORT, '0.0.0.0', () => {
         console.log('Listening on port', PORT);
     });
-}
+
+*/
