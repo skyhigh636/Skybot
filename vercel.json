@@ -1,10 +1,15 @@
 {
   "version": 2,
-
-  "rewrites": [
+  "builds": [
     {
-      "source": "/interactions",
-      "destination": "/api/interactions"
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/interactions",
+      "dest": "api/index.js"
     }
   ]
 }
