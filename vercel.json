@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "buildCommand": "cd src && npm install && npm run build",
+  "outputDirectory": "src/public",
+  "framework": null
+}
