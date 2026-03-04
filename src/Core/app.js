@@ -20,6 +20,8 @@ const PORT = process.env.PORT || 3000;
 // To keep track of our active games
 const activeGames = {};
 
+app.use(express.json());
+
 /**
  * Interactions endpoint URL where Discord will send HTTP requests
  * Parse request body and verifies incoming requests using discord-interactions package
@@ -390,6 +392,5 @@ app.get('/health', (req, res) => {
 
 // Explicitly bind to 0.0.0.0 to accept external connections
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Listening on port ${PORT}`);
-    console.log(`Health check:  http://localhost:${PORT}/health`);
+    console.log('Listening on port', PORT);
 });
