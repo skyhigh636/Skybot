@@ -1,6 +1,5 @@
 import 'dotenv/config';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import express from 'express';
 import { readFileSync } from 'fs';
 import FormData from 'form-data';
 import {
@@ -8,312 +7,404 @@ import {
     InteractionResponseFlags,
     InteractionResponseType,
     InteractionType,
+    MessageComponentTypes,
+    verifyKeyMiddleware,
 } from 'discord-interactions';
 import { getRandomEmoji, DiscordRequest } from '../utils.js';
 import { getShuffledOptions, getResult, RollDice } from './game.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Create an express app
+//const app = express();
+// Get port, or default to 3000
+//const PORT = process.env.PORT || 3000;
+// To keep track of our active games
 
 const activeGames = {};
 
-// Manually verify the Discord request signature
-async function verifyDiscordRequest(req) {
-    const signature = req.headers['x-signature-ed25519'];
-    const timestamp = req.headers['x-signature-timestamp'];
+//app.use(express.json());
 
-    if (!signature || !timestamp) return false;
+/**
+ * Interactions endpoint URL where Discord will send HTTP requests
+ * Parse request body and verifies incoming requests using discord-interactions package
+ */
+export default function handler(req, res) {
 
-    // Read raw body as a buffer
-    const chunks = [];
-    for await (const chunk of req) {
-        chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-    }
-    const rawBody = Buffer.concat(chunks);
 
-    // Verify using Web Crypto (available in Node 18+, which Vercel uses)
-    const PUBLIC_KEY = process.env.PUBLIC_KEY;
-    const encoder = new TextEncoder();
-    const key = await crypto.subtle.importKey(
-        'raw',
-        hexToUint8Array(PUBLIC_KEY),
-        { name: 'Ed25519' },
-        false,
-        ['verify']
-    );
-    const isValid = await crypto.subtle.verify(
-        'Ed25519',
-        key,
-        hexToUint8Array(signature),
-        encoder.encode(timestamp + rawBody.toString())
-    );
 
-    return { isValid, rawBody };
-}
-
-function hexToUint8Array(hex) {
-    return new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
-}
-
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).send('Method Not Allowed');
-    }
-
-    // Verify the request signature manually (raw body needed)
-    const verification = await verifyDiscordRequest(req);
-    if (!verification || !verification.isValid) {
-        return res.status(401).send('Bad request signature');
-    }
-
-    // Parse the body from the raw buffer
-    const body = JSON.parse(verification.rawBody.toString());
-    const { id, type, data } = body;
-    // Attach parsed body to req for downstream use
-    req.body = body;
-
-    // Handle Discord PING (endpoint verification)
+    /*app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async function
+        (req, res) {
+        // Interaction id, type and data
+        const { id, type, data } = req.body;
+    */
+    /**
+     * Handle verification requests
+     */
     if (type === InteractionType.PING) {
-        return res.json({ type: InteractionResponseType.PONG });
+        return res.send({ type: InteractionResponseType.PONG });
     }
+    return verifyKeyMiddleware(process.env.PUBLIC_KEY)(req, res, async () => {
+        const { id, type, data } = req.body;
 
-    // Handle slash commands
-    if (type === InteractionType.APPLICATION_COMMAND) {
-        const { name } = data;
-
-        if (name === 'test') {
-            console.log('Test command received');
-            return res.json({
-                type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                data: {
-                    flags: InteractionResponseFlags.IS_COMPONENTS_V2,
-                    components: [
-                        {
-                            type: MessageComponentTypes.TEXT_DISPLAY,
-                            content: `existing in the big 2026🙏🙏🥀🥀sybau ts pmo icl why u pmo 🥀🥀🥀🥀🥀🥀🏚🏚🏚🏚🏚MANGO MANGO MANGO😈😈noradrenaline still water sigma skibidi chad sigma boy Trollface BOII WHAT DID YOU SAY ABOUT PHONK😈😈🔥🔥  ${getRandomEmoji()}`,
-                        },
-                    ],
-                },
-            });
+        if (type === InteractionType.PING) {
+            return res.send({ type: InteractionResponseType.PONG });
         }
 
-        if (name === 'challenge' && id) {
-            const context = body.context;
-            const userId = context === 0 ? body.member.user.id : body.user.id;
+        /**
+         * Handle slash command requests
+         * See https://discord.com/developers/docs/interactions/application-commands#slash-commands
+         */
+        if (type === InteractionType.APPLICATION_COMMAND) {
+            const { name } = data;
 
-            if (!data.options || data.options.length < 2) {
-                return res.json({
+
+            // "test" command
+            if (name === 'test') {
+                // Send a message into the channel where command was triggered from
+                console.log("Test command recieved");
+                return res.send({
                     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
                     data: {
-                        flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
-                        components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: 'Missing required options for the challenge command.' }],
-                    },
-                });
-            }
-
-            const objectName = data.options[1].value;
-            const targetUserId = data.options[0].value;
-
-            activeGames[id] = { id: userId, objectName, targetUserId };
-
-            return res.json({
-                type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                data: {
-                    flags: InteractionResponseFlags.IS_COMPONENTS_V2,
-                    components: [
-                        {
-                            type: MessageComponentTypes.TEXT_DISPLAY,
-                            content: `<@${userId}> challenged <@${targetUserId}> to rock paper scissors! ${getRandomEmoji()}`,
-                        },
-                        {
-                            type: MessageComponentTypes.ACTION_ROW,
-                            components: [
-                                {
-                                    type: MessageComponentTypes.BUTTON,
-                                    custom_id: `accept_button_${id}`,
-                                    label: 'Accept',
-                                    style: ButtonStyleTypes.PRIMARY,
-                                },
-                            ],
-                        },
-                    ],
-                },
-            });
-        }
-
-        if (name === 'roll') {
-            const sides = data.options?.find(opt => opt.name === 'sides')?.value;
-            const wager = data.options?.find(opt => opt.name === 'wager')?.value;
-            const desired = data.options?.find(opt => opt.name === 'desired')?.value;
-            const result = RollDice(sides, wager, desired).dice;
-
-            let responseMessage = `🎲 You rolled a ${result} on a ${sides || 6}-sided die! Your desired number was ${desired || 'none'}.`;
-            if (wager) responseMessage += `\nWager: ${wager}`;
-
-            return res.json({
-                type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                data: {
-                    flags: InteractionResponseFlags.IS_COMPONENTS_V2,
-                    components: [
-                        { type: MessageComponentTypes.TEXT_DISPLAY, content: responseMessage },
-                        {
-                            type: MessageComponentTypes.ACTION_ROW,
-                            components: [
-                                {
-                                    type: MessageComponentTypes.BUTTON,
-                                    custom_id: `roll_button_${sides || 6}_${wager || 'none'}_${desired || 'none'}_${id}`,
-                                    label: 'Roll Again',
-                                    style: ButtonStyleTypes.PRIMARY,
-                                },
-                            ],
-                        },
-                    ],
-                },
-            });
-        }
-
-        if (name === 'heckle') {
-            console.log('heckling');
-            const gifPath = path.join(__dirname, '../../images/cityboy.gif');
-            const form = new FormData();
-            form.append('files[0]', readFileSync(gifPath), 'cityboy.gif');
-            form.append('payload_json', JSON.stringify({ content: 'CITY BOY FOUND 🏙️' }));
-
-            // Use Discord REST to follow up since multipart can't be sent via res.json
-            const followupEndpoint = `webhooks/${process.env.APP_ID}/${body.token}`;
-            // Acknowledge first, then send file as followup
-            res.json({ type: InteractionResponseType.DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE });
-            await DiscordRequest(followupEndpoint, { method: 'POST', body: form });
-            return;
-        }
-
-        console.error(`unknown command: ${name}`);
-        return res.status(400).json({ error: 'unknown command' });
-    }
-
-    // Handle message components (buttons, selects)
-    if (type === InteractionType.MESSAGE_COMPONENT) {
-        const componentId = data.custom_id;
-
-        if (componentId.startsWith('accept_button_')) {
-            const gameId = componentId.replace('accept_button_', '');
-            const game = activeGames[gameId];
-
-            if (!game) {
-                return res.json({
-                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                    data: {
-                        flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
-                        components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: 'Game not found or already completed.' }],
-                    },
-                });
-            }
-
-            const context = body.context;
-            const userId = context === 0 ? body.member.user.id : body.user.id;
-
-            if (userId !== game.targetUserId) {
-                return res.json({
-                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                    data: {
-                        flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
-                        components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: 'You cannot accept this challenge.' }],
-                    },
-                });
-            }
-
-            const endpoint = `webhooks/${process.env.APP_ID}/${body.token}/messages/${body.message.id}`;
-            try {
-                res.json({
-                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                    data: {
-                        flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
+                        flags: InteractionResponseFlags.IS_COMPONENTS_V2,
                         components: [
-                            { type: MessageComponentTypes.TEXT_DISPLAY, content: 'What is your object of choice?' },
+                            {
+                                type: MessageComponentTypes.TEXT_DISPLAY,
+                                // Fetches a random emoji to send from a helper function
+                                content: `existing in the big 2026🙏🙏🥀🥀sybau ts pmo icl why u pmo 🥀🥀🥀🥀🥀🥀🏚🏚🏚🏚🏚MANGO MANGO MANGO😈😈noradrenaline still water sigma skibidi chad sigma boy Trollface BOII WHAT DID YOU SAY ABOUT PHONK😈😈🔥🔥  ${getRandomEmoji()}`
+                            }
+                        ]
+                    },
+                });
+            }
+
+            if (name === 'challenge' && id) {
+                const context = req.body.context;
+                // User ID is in user field for (G)DMs, and member for servers
+                const userId = context === 0 ? req.body.member.user.id : req.body.user.id;
+                if (!data.options || data.options.length < 2) {
+                    return res.send({
+                        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                        data: {
+                            flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
+                            components: [{
+                                type: MessageComponentTypes.TEXT_DISPLAY,
+                                content: "Missing required options for the challenge command."
+                            }]
+                        }
+                    });
+                }
+                // User's object choice
+                const objectName = req.body.data.options[1].value;
+                // get target user ID from options
+                const targetUserId = req.body.data.options[0].value;
+
+
+                // Create active game using message ID as the game ID
+                activeGames[id] = {
+                    id: userId,
+                    objectName,
+                    targetUserId: targetUserId,
+                };
+
+                // Send a message into the channel where command was triggered from
+                return res.send({
+                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                    data: {
+                        flags: InteractionResponseFlags.IS_COMPONENTS_V2,
+                        components: [
+                            {
+                                type: MessageComponentTypes.TEXT_DISPLAY,
+                                content: `<@${userId}> challenged <@${targetUserId}> to rock paper scissors! ${getRandomEmoji()}`
+                            },
+                            {
+                                type: MessageComponentTypes.ACTION_ROW,
+                                components: [
+
+                                    {
+                                        type: MessageComponentTypes.BUTTON,
+                                        // Append the game ID to use later on
+                                        custom_id: `accept_button_${req.body.id}`,
+                                        label: 'Accept',
+                                        style: ButtonStyleTypes.PRIMARY,
+                                    }
+                                ]
+
+
+                            }
+                        ]
+                    }
+
+                });
+
+            }
+            //roll
+            if (name === 'roll') {
+
+                // Get options from data
+                const sides = req.body.data.options?.find(opt => opt.name === 'sides')?.value;
+                const wager = req.body.data.options?.find(opt => opt.name === 'wager')?.value;
+                const desired = req.body.data.options?.find(opt => opt.name === 'desired')?.value;
+                console.log("Rolling", sides, wager);
+                // Roll the dice
+                const result = RollDice(sides, wager, desired).dice;
+                console.log("rolled", result);
+                // Prepare response message
+                let responseMessage = `🎲 You rolled a ${result} on a ${sides}-sided die! Your desired number was ${desired || 'none'}.`;
+                if (wager) {
+                    responseMessage += `\nWager: ${wager}`;
+                }
+                console.log("response message", responseMessage);
+
+                // Send the response
+                return res.send({
+                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                    data: {
+                        flags: InteractionResponseFlags.IS_COMPONENTS_V2,
+                        components: [
+                            {
+                                type: MessageComponentTypes.TEXT_DISPLAY,
+                                content: responseMessage
+                            },
                             {
                                 type: MessageComponentTypes.ACTION_ROW,
                                 components: [
                                     {
-                                        type: MessageComponentTypes.STRING_SELECT,
-                                        custom_id: `select_choice_${gameId}`,
-                                        options: getShuffledOptions(),
-                                    },
-                                ],
-                            },
-                        ],
-                    },
+                                        type: MessageComponentTypes.BUTTON,
+                                        custom_id: `roll_button_${sides}_${wager || 'none'}_${desired || 'none'}_${req.body.id}`,
+                                        label: 'Roll Again',
+                                        style: ButtonStyleTypes.PRIMARY,
+                                    }
+                                ]
+
+                            }
+                        ]
+                    }
                 });
-                await DiscordRequest(endpoint, { method: 'DELETE' });
-            } catch (err) {
-                console.error('Error sending message:', err);
             }
-            return;
+
+          /*  if (name === 'heckle') {
+                console.log("heckling");
+
+
+                const form = new FormData();
+                form.append('files[0]', readFileSync('./images/cityboy.gif'), 'CITY BOY!');
+                form.append('payload_json', JSON.stringify({
+                    content: "CITY BOY FOUN"
+                }));
+
+            }*/
+
+            console.error(`unknown command: ${name}`);
+            return res.status(400).json({ error: 'unknown command' });
         }
 
-        if (componentId.startsWith('select_choice_')) {
-            const gameId = componentId.replace('select_choice_', '');
+        if (type === InteractionType.MESSAGE_COMPONENT) {
 
-            if (activeGames[gameId]) {
-                const context = body.context;
-                const userId = context === 0 ? body.member.user.id : body.user.id;
-                const objectName = data.values[0];
-                const resultStr = getResult(activeGames[gameId], { id: userId, objectName });
+            // custom_id set in payload when sending message component
+            const componentId = data.custom_id;
 
-                delete activeGames[gameId];
-                const endpoint = `webhooks/${process.env.APP_ID}/${body.token}/messages/${body.message.id}`;
+            /* handling responses for buttons
+                accept button for challenges - makes sure games can only be accepted by the user challenged
+                select choice dropdown for rock paper scissors - retrieves choices from both users and gets result
+                roll button for result formatting and reroll
+            */
+            if (componentId.startsWith('accept_button_')) {
 
-                try {
-                    res.json({
+                const gameId = componentId.replace('accept_button_', '');
+                const game = activeGames[gameId];
+                if (!game) {
+                    return res.send({
                         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
                         data: {
-                            flags: InteractionResponseFlags.IS_COMPONENTS_V2,
-                            components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: resultStr }],
+                            flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
+                            components: [
+                                {
+                                    type: MessageComponentTypes.TEXT_DISPLAY,
+                                    content: 'Game not found or already completed.',
+                                },
+                            ]
+                        }
+                    });
+                }
+
+                const context = req.body.context;
+                const userId = context === 0 ? req.body.member.user.id : req.body.user.id;
+
+                if (userId !== game.targetUserId) {
+                    return res.send({
+                        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                        data: {
+                            flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
+                            components: [
+                                {
+                                    type: MessageComponentTypes.TEXT_DISPLAY,
+                                    content: 'You cannot accept this challenge.',
+                                },
+                            ]
+                        }
+                    });
+                }
+
+                const endpoint = `webhooks/${process.env.APP_ID}/${req.body.token}/messages/${req.body.message.id}`;
+                try {
+                    await res.send({
+                        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                        data: {
+                            // Indicates it'll be an ephemeral message
+                            flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
+                            components: [
+                                {
+                                    type: MessageComponentTypes.TEXT_DISPLAY,
+                                    content: 'What is your object of choice?',
+                                },
+                                {
+                                    type: MessageComponentTypes.ACTION_ROW,
+                                    components: [
+                                        {
+                                            type: MessageComponentTypes.STRING_SELECT,
+                                            // Append game ID
+                                            custom_id: `select_choice_${gameId}`,
+                                            options: getShuffledOptions(),
+                                        },
+                                    ],
+                                },
+                            ],
                         },
                     });
-                    await DiscordRequest(endpoint, {
-                        method: 'PATCH',
-                        body: {
-                            components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: 'Nice choice ' + getRandomEmoji() }],
-                        },
-                    });
+                    // Delete previous message
+                    await DiscordRequest(endpoint, { method: 'DELETE' });
                 } catch (err) {
                     console.error('Error sending message:', err);
                 }
+            } else if (componentId.startsWith('select_choice_')) {
+                // get the associated game ID
+                const gameId = componentId.replace('select_choice_', '');
+
+                if (activeGames[gameId]) {
+                    // Interaction context
+                    console.log('active game', activeGames[gameId]);
+                    const context = req.body.context;
+                    // Get user ID and object choice for responding user
+                    // User ID is in user field for (G)DMs, and member for servers
+                    const userId = context === 0 ? req.body.member.user.id : req.body.user.id;
+                    const objectName = data.values[0];
+                    // Calculate result from helper function
+                    const resultStr = getResult(activeGames[gameId], {
+                        id: userId,
+                        objectName,
+                    });
+
+                    // Remove game from storage
+                    delete activeGames[gameId];
+                    // Update message with token in request body
+                    const endpoint = `webhooks/${process.env.APP_ID}/${req.body.token}/messages/${req.body.message.id}`;
+
+                    try {
+                        // Send results
+                        await res.send({
+                            type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                            data: {
+                                flags: InteractionResponseFlags.IS_COMPONENTS_V2,
+                                components: [
+                                    {
+                                        type: MessageComponentTypes.TEXT_DISPLAY,
+                                        content: resultStr
+                                    }
+                                ]
+                            },
+                        });
+                        // Update ephemeral message
+                        await DiscordRequest(endpoint, {
+                            method: 'PATCH',
+                            body: {
+                                components: [
+                                    {
+                                        type: MessageComponentTypes.TEXT_DISPLAY,
+                                        content: 'Nice choice ' + getRandomEmoji()
+                                    }
+                                ],
+                            },
+                        });
+                    } catch (err) {
+                        console.error('Error sending message:', err);
+                    }
+                }
+            } else if (componentId.startsWith('roll_button_')) {
+                try {
+                    // Parse the data from custom_id (format: roll_button_sides_wager_desired_id)
+                    const parts = componentId.split('_');
+                    const sides = parts.length > 2 ? parseInt(parts[2]) : 6;
+                    const wager = parts.length > 3 ? (parts[3] === 'none' ? null : parts[3]) : null;
+                    const desired = parts.length > 4 ? (parts[4] === 'none' ? null : parseInt(parts[4])) : null;
+
+                    // Roll the dice
+                    const result = RollDice(sides, wager, desired).dice;
+
+                    // Prepare response message
+                    let responseMessage = `🎲 You rolled a ${result} on a ${sides}-sided die!`;
+                    if (desired) {
+                        responseMessage += ` Your desired number was ${desired}.`;
+                    }
+                    if (wager) {
+                        responseMessage += `\nWager: ${wager}`;
+                    }
+
+                    // Send results as a new message without any interactive buttons
+                    return res.send({
+                        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                        data: {
+                            flags: InteractionResponseFlags.IS_COMPONENTS_V2,
+                            components: [
+                                {
+                                    type: MessageComponentTypes.TEXT_DISPLAY,
+                                    content: responseMessage
+                                }
+                            ]
+                        },
+                    });
+
+                } catch (err) {
+                    console.error('Error handling roll button:', err);
+                    return res.send({
+                        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                        data: {
+                            flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
+                            components: [{
+                                type: MessageComponentTypes.TEXT_DISPLAY,
+                                content: "There was an error processing your roll."
+                            }]
+                        }
+                    });
+                }
             }
-            return;
+
         }
 
-        if (componentId.startsWith('roll_button_')) {
-            try {
-                const parts = componentId.split('_');
-                const sides = parts.length > 2 ? parseInt(parts[2]) : 6;
-                const wager = parts.length > 3 ? (parts[3] === 'none' ? null : parts[3]) : null;
-                const desired = parts.length > 4 ? (parts[4] === 'none' ? null : parseInt(parts[4])) : null;
 
-                const result = RollDice(sides, wager, desired).dice;
-                let responseMessage = `🎲 You rolled a ${result} on a ${sides}-sided die!`;
-                if (desired) responseMessage += ` Your desired number was ${desired}.`;
-                if (wager) responseMessage += `\nWager: ${wager}`;
+        console.error('unknown interaction type', type);
+        return res.status(400).json({ error: 'unknown interaction type' });
+    });
 
-                return res.json({
-                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                    data: {
-                        flags: InteractionResponseFlags.IS_COMPONENTS_V2,
-                        components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: responseMessage }],
-                    },
-                });
-            } catch (err) {
-                console.error('Error handling roll button:', err);
-                return res.json({
-                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-                    data: {
-                        flags: InteractionResponseFlags.EPHEMERAL | InteractionResponseFlags.IS_COMPONENTS_V2,
-                        components: [{ type: MessageComponentTypes.TEXT_DISPLAY, content: 'There was an error processing your roll.' }],
-                    },
-                });
-            }
-        }
-    }
 
-    console.error('unknown interaction type', type);
-    return res.status(400).json({ error: 'unknown interaction type' });
+
 }
+
+    // Health check endpoints (add before app.listen)
+    /*
+    app.get('/', (req, res) => {
+        res.send('Discord bot server is running! 🤖');
+    });
+
+    app.get('/health', (req, res) => {
+        res.json({
+            status: 'ok',
+            timestamp: new Date().toISOString(),
+            activeGames: Object.keys(activeGames).length
+        });
+    });
+
+    // Explicitly bind to 0.0.0.0 to accept external connections
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log('Listening on port', PORT);
+    });
+
+*/

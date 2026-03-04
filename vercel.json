@@ -1,19 +1,9 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "src/Core/app.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/interactions",
-      "dest": "src/Core/app.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "src/Core/app.js"
+      "source": "/interactions",
+      "destination": "/src/Core/app.js"
     }
   ]
 }
