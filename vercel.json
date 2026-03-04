@@ -10,6 +10,10 @@
     {
       "src": "/interactions",
       "dest": "src/Core/app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "src/Core/app.js"
     }
   ]
 }
