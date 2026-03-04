@@ -39,9 +39,11 @@ export default function handler(req, res) {
     /**
      * Handle verification requests
      */
-    if (type === InteractionType.PING) {
-        return res.send({ type: InteractionResponseType.PONG });
+
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method Not Allowed' });
     }
+
     return verifyKeyMiddleware(process.env.PUBLIC_KEY)(req, res, async () => {
         const { id, type, data } = req.body;
 
@@ -181,17 +183,17 @@ export default function handler(req, res) {
                 });
             }
 
-          /*  if (name === 'heckle') {
-                console.log("heckling");
-
-
-                const form = new FormData();
-                form.append('files[0]', readFileSync('./images/cityboy.gif'), 'CITY BOY!');
-                form.append('payload_json', JSON.stringify({
-                    content: "CITY BOY FOUN"
-                }));
-
-            }*/
+            /*  if (name === 'heckle') {
+                  console.log("heckling");
+  
+  
+                  const form = new FormData();
+                  form.append('files[0]', readFileSync('./images/cityboy.gif'), 'CITY BOY!');
+                  form.append('payload_json', JSON.stringify({
+                      content: "CITY BOY FOUN"
+                  }));
+  
+              }*/
 
             console.error(`unknown command: ${name}`);
             return res.status(400).json({ error: 'unknown command' });
@@ -388,23 +390,23 @@ export default function handler(req, res) {
 
 }
 
-    // Health check endpoints (add before app.listen)
-    /*
-    app.get('/', (req, res) => {
-        res.send('Discord bot server is running! 🤖');
-    });
+// Health check endpoints (add before app.listen)
+/*
+app.get('/', (req, res) => {
+    res.send('Discord bot server is running! 🤖');
+});
 
-    app.get('/health', (req, res) => {
-        res.json({
-            status: 'ok',
-            timestamp: new Date().toISOString(),
-            activeGames: Object.keys(activeGames).length
-        });
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'ok',
+        timestamp: new Date().toISOString(),
+        activeGames: Object.keys(activeGames).length
     });
+});
 
-    // Explicitly bind to 0.0.0.0 to accept external connections
-    app.listen(PORT, '0.0.0.0', () => {
-        console.log('Listening on port', PORT);
-    });
+// Explicitly bind to 0.0.0.0 to accept external connections
+app.listen(PORT, '0.0.0.0', () => {
+    console.log('Listening on port', PORT);
+});
 
 */
