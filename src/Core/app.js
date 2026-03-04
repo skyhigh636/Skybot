@@ -29,10 +29,6 @@ const activeGames = {};
  */
 export default function handler(req, res) {
 
-    if (req.method !== 'POST') {
-        return res.status(405).send("Method not allowed");
-    }
-
 
 
     /*app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async function
@@ -43,9 +39,9 @@ export default function handler(req, res) {
     /**
      * Handle verification requests
      */
-    if (type === InteractionType.PING) {
+    /*if (type === InteractionType.PING) {
         return res.send({ type: InteractionResponseType.PONG });
-    }
+    }*/
     return verifyKeyMiddleware(process.env.PUBLIC_KEY)(req, res, async () => {
         const { id, type, data } = req.body;
 
