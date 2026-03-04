@@ -523,3 +523,70 @@ Time for 'plugin worker 114475 code loading' 5.237171
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:23:32.497Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:23:32.497Z - Time taken for 'total execution time for createProjectGraph()' 11.125843000016175ms
 Time for 'build typescript dependencies' 1.9799799999964307
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:46.126Z - [WATCHER]: packages/taskpackage/package.json was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:46.126Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:46.126Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:49.085Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:49.085Z - [WATCHER]: packages/taskpackage/package.json was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:49.085Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.526Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.526Z - [REQUEST]: packages/taskpackage/package.json
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.526Z - [REQUEST]: 
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.531Z - Time taken for 'hash changed files from watcher' 0.06848299998091534ms
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 2.6355920000351034
+Time for 'plugin worker 122092 code loading' 4.004483999999998
+Time for 'plugin worker 122091 code loading' 3.8900640000000006
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.551Z - Time taken for 'start-plugin-worker:nx/core/project-json' 22.035612000036053ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.560Z - Time taken for 'start-plugin-worker:nx/core/package-json' 32.76820300001418ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.644Z - Time taken for 'build-project-configs' 114.27083900000434ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.655Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.655Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:28:52.655Z - Time taken for 'total execution time for createProjectGraph()' 12.541529999987688ms
+Time for 'build typescript dependencies' 0.9387729999725707
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:05.928Z - [WATCHER]: lerna.json was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:05.928Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:05.928Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.329Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.329Z - [REQUEST]: lerna.json
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.329Z - [REQUEST]: 
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.334Z - Time taken for 'hash changed files from watcher' 0.16957299993373454ms
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 4.767111999972258
+Time for 'plugin worker 122152 code loading' 4.9500769999999985
+Time for 'plugin worker 122151 code loading' 4.794411
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.361Z - Time taken for 'start-plugin-worker:nx/core/package-json' 31.688085000030696ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.365Z - Time taken for 'start-plugin-worker:nx/core/project-json' 32.98135499993805ms
+
+ NX    NX  Unable to parse lerna.json
+
+Error: InvalidSymbol in /home/emmy/Skybot/src/lerna.json at 5:1
+  3 |   "version": "0.0.0",
+  4 |   "packages":[
+> 5 | packages/taskpackage"
+    | ^^^^^^^^
+  6 |   ] 
+  7 | }
+  8 | 
+
+
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.455Z - Time taken for 'build-project-configs' 122.74211700004525ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.466Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.466Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.466Z - Time taken for 'total execution time for createProjectGraph()' 12.36749700002838ms
+Time for 'build typescript dependencies' 0.013860000006388873
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.833Z - [WATCHER]: lerna.json was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.834Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:12.834Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.234Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.234Z - [REQUEST]: lerna.json
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.234Z - [REQUEST]: 
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.239Z - Time taken for 'hash changed files from watcher' 0.05810999998357147ms
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 2.9185210000141524
+Time for 'plugin worker 122198 code loading' 3.952300000000001
+Time for 'plugin worker 122197 code loading' 4.579913000000001
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.266Z - Time taken for 'start-plugin-worker:nx/core/package-json' 31.594144999980927ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.270Z - Time taken for 'start-plugin-worker:nx/core/project-json' 32.901224999921396ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.349Z - Time taken for 'build-project-configs' 110.25594900001306ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.358Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.359Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.359Z - Time taken for 'total execution time for createProjectGraph()' 12.172456000000238ms
+Time for 'build typescript dependencies' 0.8941689999774098
