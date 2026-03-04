@@ -1,0 +1,143 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.5.3",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "8148192429397544382"
+      },
+      {
+        "file": "Core/app.js",
+        "hash": "1315623130402783213"
+      },
+      {
+        "file": "Core/commands.js",
+        "hash": "18122871501862751821"
+      },
+      {
+        "file": "Core/game.js",
+        "hash": "1591264543371117456"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "15124979638282555157"
+      },
+      {
+        "file": "coverage/clover.xml",
+        "hash": "3710912118689757830"
+      },
+      {
+        "file": "coverage/coverage-final.json",
+        "hash": "15753941481085060538"
+      },
+      {
+        "file": "coverage/lcov-report/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/lcov-report/block-navigation.js",
+        "hash": "12446232633193746418"
+      },
+      {
+        "file": "coverage/lcov-report/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/lcov-report/index.html",
+        "hash": "17932414169121096864"
+      },
+      {
+        "file": "coverage/lcov-report/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/lcov-report/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/lcov-report/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/lcov-report/sorter.js",
+        "hash": "1622810700515270183"
+      },
+      {
+        "file": "coverage/lcov.info",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "eslint.config.js",
+        "hash": "9430430061705718191"
+      },
+      {
+        "file": "images/cityboy.gif",
+        "hash": "7105770320776116309"
+      },
+      {
+        "file": "images/hemmy-boi-city-boy.png",
+        "hash": "11848780979776663044"
+      },
+      {
+        "file": "jest.config.js",
+        "hash": "17459222874392771925"
+      },
+      {
+        "file": "lerna.json",
+        "hash": "9509988360557665151"
+      },
+      {
+        "file": "nx.json",
+        "hash": "676479285718565719"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "12453256106734906707"
+      },
+      {
+        "file": "package.json",
+        "hash": "640332591054623912"
+      },
+      {
+        "file": "renovate.json",
+        "hash": "8337940239077318473"
+      },
+      {
+        "file": "tests/Mocks/Discordrequest.js",
+        "hash": "15593070901792706440"
+      },
+      {
+        "file": "tests/app.test.js",
+        "hash": "10437787403577168293"
+      },
+      {
+        "file": "tests/game.test.js",
+        "hash": "10587157996926932235"
+      },
+      {
+        "file": "tests/setup.js",
+        "hash": "8868525774010907966"
+      },
+      {
+        "file": "tests/utils.test.js",
+        "hash": "15626781049628643652"
+      },
+      {
+        "file": "utils.js",
+        "hash": "8458702388333823046"
+      }
+    ],
+    "projectFileMap": {
+      "skybot": [
+        {
+          "file": "packages/taskpackage/package.json",
+          "hash": "5105153720756467533"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "2285834739141585076"
+}
