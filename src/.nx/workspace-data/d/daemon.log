@@ -590,3 +590,20 @@ Time for 'plugin worker 122197 code loading' 4.579913000000001
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.359Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:29:19.359Z - Time taken for 'total execution time for createProjectGraph()' 12.172456000000238ms
 Time for 'build typescript dependencies' 0.8941689999774098
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:51.202Z - [WATCHER]: packages/taskpackage/package.json was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:51.202Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:51.202Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.602Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.602Z - [REQUEST]: packages/taskpackage/package.json
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.602Z - [REQUEST]: 
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.607Z - Time taken for 'hash changed files from watcher' 0.10422300000209361ms
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 3.6248759999871254
+Time for 'plugin worker 123613 code loading' 5.745782999999999
+Time for 'plugin worker 123612 code loading' 7.954841000000002
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.638Z - Time taken for 'start-plugin-worker:nx/core/project-json' 32.495936000021175ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.646Z - Time taken for 'start-plugin-worker:nx/core/package-json' 43.00300799997058ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.787Z - Time taken for 'build-project-configs' 180.5866049999604ms
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.797Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.797Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.797Z - Time taken for 'total execution time for createProjectGraph()' 12.191389000043273ms
+Time for 'build typescript dependencies' 1.4995439999038354
