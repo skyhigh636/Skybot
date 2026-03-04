@@ -607,3 +607,37 @@ Time for 'plugin worker 123612 code loading' 7.954841000000002
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.797Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:35:57.797Z - Time taken for 'total execution time for createProjectGraph()' 12.191389000043273ms
 Time for 'build typescript dependencies' 1.4995439999038354
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.159Z - [Server] lock file hash changed! old=406084917562440347, new=3244421341483603138
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.159Z - [Server] Daemon outdated: LOCK_FILES_CHANGED
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.159Z - [Server] Restarting daemon...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.160Z - Restarting daemon with script: /home/emmy/Skybot/src/node_modules/nx/src/daemon/server/start.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.160Z - Old daemon __dirname: /home/emmy/Skybot/src/node_modules/nx/src/daemon/server
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.160Z - Current process.execPath: /home/emmy/.nvm/versions/node/v24.11.0/bin/node
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.163Z - Started new daemon process in background
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.164Z - [WATCHER]: Stopping the watcher for /home/emmy/Skybot/src (sources)
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.164Z - [WATCHER]: Stopping the watcher for /home/emmy/Skybot/src (outputs)
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.164Z - [NX-CONSOLE]: Cleaning up latest Nx installation from /tmp/tmp-110979-vsPpXX441yQk
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.164Z - Server stopped because: "LOCK_FILES_CHANGED"
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.331Z - New daemon starting from: /home/emmy/Skybot/src/node_modules/nx/src/daemon/server/server.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.332Z - New daemon __dirname: /home/emmy/Skybot/src/node_modules/nx/src/daemon/server
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.332Z - New daemon nxVersion: 22.5.3
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.332Z - New daemon getInstalledNxVersion(): 22.5.3
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.336Z - [Server] Starting outdated check interval (20ms)
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.338Z - Started listening on: /tmp/a2aa144c0fb1a67e2888/d.sock
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.340Z - [WATCHER]: Subscribed to changes within: /home/emmy/Skybot/src (native)
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.341Z - [NX-CONSOLE]: Pulling latest Nx (latest) to check console status...
+Fetching nx...
+Time for 'plugin worker 125078 code loading' 10.238351999999999
+Time for 'plugin worker 125085 code loading' 9.624971000000002
+Time for 'plugin worker 125091 code loading' 11.717213000000001
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.749Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.749Z - [REQUEST]: 
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.749Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.3046789999999646
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:25.775Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:29.293Z - [NX-CONSOLE]: Successfully pulled latest Nx to /tmp/tmp-125005-XxnVKD1UJ7vc
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:29.370Z - [NX-CONSOLE]: Using local implementation (NX_USE_LOCAL=true or inner call)
+DEBUG nx::native::ide::install: Detected editor: VSCode
+DEBUG nx::native::ide::install: Checking if Nx Console extension is installed with: code --list-extensions
+DEBUG nx::native::ide::install: Command 'code' not found, cannot check extension status
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:42:29.371Z - [NX-CONSOLE]: Console status check completed, shouldPrompt: true
