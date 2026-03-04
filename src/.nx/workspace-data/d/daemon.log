@@ -1487,3 +1487,10 @@ Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.14249399999999923
 [NX v22.5.3 Daemon Server] - 2026-03-04T16:56:21.405Z - [SYNC]: collect registered sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T16:56:21.405Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T16:56:21.405Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.200Z - [WATCHER]: .gitignore was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.200Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.200Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.200Z - [WATCHER]: Stopping the watcher for /home/emmy/Skybot/src (sources)
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.201Z - [WATCHER]: Stopping the watcher for /home/emmy/Skybot/src (outputs)
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.201Z - [NX-CONSOLE]: Cleaning up latest Nx installation from /tmp/tmp-125005-XxnVKD1UJ7vc
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:58:54.201Z - Server stopped because: "Stopping the daemon the set of ignored files changed (native)"
