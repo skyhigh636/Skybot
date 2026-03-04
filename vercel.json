@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/interactions.js": {
-      "runtime": "@vercel/node@5"
+      "runtime": "nodejs20.x"
     }
   },
   "rewrites": [
