@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import {getRPSChoices, RollDice} from './game.js';
-import {capitalize, InstallGlobalCommands, DiscordRequest} from './utils.js';
+import {capitalize, InstallGlobalCommands, DiscordRequest} from '../utils.js';
 
 // Get the game choices from game.js
 function createCommandChoices() {

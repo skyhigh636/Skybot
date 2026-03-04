@@ -10,7 +10,7 @@ import {
     MessageComponentTypes,
     verifyKeyMiddleware,
 } from 'discord-interactions';
-import { getRandomEmoji, DiscordRequest } from './utils.js';
+import { getRandomEmoji, DiscordRequest } from '../utils.js';
 import { getShuffledOptions, getResult, RollDice } from './game.js';
 
 // Create an express app
