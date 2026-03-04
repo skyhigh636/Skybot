@@ -1445,3 +1445,16 @@ Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.3347529999999779
 [NX v22.5.3 Daemon Server] - 2026-03-04T16:50:22.994Z - [SYNC]: collect registered sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T16:50:22.994Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX v22.5.3 Daemon Server] - 2026-03-04T16:50:22.994Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:44.792Z - [WATCHER]: Core/api was deleted
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:44.792Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:44.792Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:44.993Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:44.993Z - [REQUEST]: 
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:44.993Z - [REQUEST]: Core/api
+Time for 'plugin worker 159287 code loading' 5.062913
+Time for 'plugin worker 159289 code loading' 5.1055160000000015
+Time for 'plugin worker 159288 code loading' 5.724789000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.13256699999999455
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:45.138Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:45.138Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T16:54:45.138Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
