@@ -641,3 +641,358 @@ DEBUG nx::native::ide::install: Detected editor: VSCode
 DEBUG nx::native::ide::install: Checking if Nx Console extension is installed with: code --list-extensions
 DEBUG nx::native::ide::install: Command 'code' not found, cannot check extension status
 [NX v22.5.3 Daemon Server] - 2026-03-04T14:42:29.371Z - [NX-CONSOLE]: Console status check completed, shouldPrompt: true
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.089Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.090Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.090Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.290Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.290Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.290Z - [REQUEST]: 
+Time for 'plugin worker 126105 code loading' 5.5966650000000016
+Time for 'plugin worker 126112 code loading' 5.134756999999999
+Time for 'plugin worker 126106 code loading' 5.982023999999999
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.30165099999999256
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.539Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.539Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:31.540Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:33.771Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:33.772Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:33.772Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:34.172Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:34.172Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:34.172Z - [REQUEST]: 
+Time for 'plugin worker 126181 code loading' 5.0297789999999996
+Time for 'plugin worker 126183 code loading' 4.802815000000001
+Time for 'plugin worker 126182 code loading' 4.472853000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.24715799999998467
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:34.335Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:34.335Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:34.335Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:42.618Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:42.619Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:42.619Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.420Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.420Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.420Z - [REQUEST]: 
+Time for 'plugin worker 126270 code loading' 6.150710999999999
+Time for 'plugin worker 126271 code loading' 5.399732
+Time for 'plugin worker 126269 code loading' 6.088350999999999
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.1446239999999932
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.592Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.593Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.593Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.825Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.825Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:43.826Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:45.426Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:45.427Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:45.427Z - [REQUEST]: 
+Time for 'plugin worker 126341 code loading' 6.210570999999998
+Time for 'plugin worker 126342 code loading' 5.842770999999999
+Time for 'plugin worker 126340 code loading' 5.653323
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.18288000000001148
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:45.616Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:45.617Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:45.617Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:46.026Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:46.027Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:46.027Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:49.227Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:49.227Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:49.227Z - [REQUEST]: 
+Time for 'plugin worker 126402 code loading' 8.536687
+Time for 'plugin worker 126403 code loading' 10.707359999999998
+Time for 'plugin worker 126404 code loading' 10.158033000000003
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.2488570000000152
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:49.475Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:49.475Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:46:49.475Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:15.839Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:15.839Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:15.839Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:21.889Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:21.889Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:21.889Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:22.239Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:22.239Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:22.239Z - [REQUEST]: 
+Time for 'plugin worker 126708 code loading' 6.720025
+Time for 'plugin worker 126707 code loading' 6.574120000000001
+Time for 'plugin worker 126709 code loading' 9.075433
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.25032600000000116
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:22.426Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:22.426Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:22.426Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:25.122Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:25.122Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:25.122Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:29.410Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:29.411Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:29.411Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:30.800Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:30.800Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:30.800Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:31.522Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:31.522Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:31.522Z - [REQUEST]: 
+Time for 'plugin worker 126811 code loading' 6.273295999999998
+Time for 'plugin worker 126812 code loading' 6.220288
+Time for 'plugin worker 126810 code loading' 9.224310000000003
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.14713199999999915
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:31.684Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:31.685Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:31.685Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:33.855Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:33.855Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:33.855Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:37.395Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:37.395Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:37.395Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:39.616Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:39.616Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:39.616Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:40.256Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:40.256Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:40.256Z - [REQUEST]: 
+Time for 'plugin worker 126905 code loading' 5.418232
+Time for 'plugin worker 126907 code loading' 5.271272999999999
+Time for 'plugin worker 126906 code loading' 5.379594000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.2128500000000031
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:40.419Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:40.419Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:40.419Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:46.653Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:46.653Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:46.653Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:49.584Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:49.584Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:49.584Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.054Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.054Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.054Z - [REQUEST]: 
+Time for 'plugin worker 127002 code loading' 5.675900000000002
+Time for 'plugin worker 127004 code loading' 5.089071999999998
+Time for 'plugin worker 127003 code loading' 5.467460999999997
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.1658390000000054
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.229Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.230Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.230Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.604Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.604Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:53.604Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:56.541Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:56.542Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:48:56.542Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:00.005Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:00.005Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:00.005Z - [REQUEST]: 
+Time for 'plugin worker 127092 code loading' 6.178594999999998
+Time for 'plugin worker 127091 code loading' 7.786059000000002
+Time for 'plugin worker 127090 code loading' 7.145123999999999
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.30055700000002616
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:00.275Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:00.275Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:00.275Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:02.489Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:02.489Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:02.489Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:05.261Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:05.262Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:05.262Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:08.890Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:08.890Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:08.890Z - [REQUEST]: 
+Time for 'plugin worker 127160 code loading' 5.377956000000001
+Time for 'plugin worker 127158 code loading' 5.205782000000003
+Time for 'plugin worker 127159 code loading' 5.545262000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.13396900000000755
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:09.044Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:09.044Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:09.044Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:37.563Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:37.563Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:37.564Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:39.688Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:39.688Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:39.688Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:43.964Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:43.964Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:43.964Z - [REQUEST]: 
+Time for 'plugin worker 127305 code loading' 5.2002369999999996
+Time for 'plugin worker 127306 code loading' 7.894814999999998
+Time for 'plugin worker 127307 code loading' 8.080362000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.26367700000000127
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:44.133Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:44.133Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:44.133Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:47.892Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:47.892Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:47.892Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:54.293Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:54.293Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:54.293Z - [REQUEST]: 
+Time for 'plugin worker 127388 code loading' 4.966868
+Time for 'plugin worker 127387 code loading' 5.207299000000003
+Time for 'plugin worker 127389 code loading' 4.734891000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.14144200000001206
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:54.471Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:54.471Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:49:54.471Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:39.728Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:39.728Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:39.728Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:46.129Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:46.129Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:46.129Z - [REQUEST]: 
+Time for 'plugin worker 127584 code loading' 6.929402
+Time for 'plugin worker 127583 code loading' 9.586566000000001
+Time for 'plugin worker 127585 code loading' 9.735513999999998
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.27778200000000197
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:46.321Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:46.321Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:46.321Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:51.513Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:51.513Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:51.513Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:57.333Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:57.333Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:57.333Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:57.913Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:57.914Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:57.914Z - [REQUEST]: 
+Time for 'plugin worker 127673 code loading' 4.7572610000000015
+Time for 'plugin worker 127674 code loading' 4.656009999999998
+Time for 'plugin worker 127672 code loading' 6.928889000000002
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.21907899999999358
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:58.105Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:58.106Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:50:58.106Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:01.015Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:01.015Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:01.015Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:02.157Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:02.157Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:02.157Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:07.415Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:07.416Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:07.416Z - [REQUEST]: 
+Time for 'plugin worker 127765 code loading' 5.19538
+Time for 'plugin worker 127766 code loading' 5.101286999999999
+Time for 'plugin worker 127764 code loading' 4.947003000000002
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.17098500000000172
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:07.555Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:07.556Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:07.556Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:51.748Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:51.748Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:51.749Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:53.844Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:53.844Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:53.845Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:58.149Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:58.149Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:58.149Z - [REQUEST]: 
+Time for 'plugin worker 127963 code loading' 5.3902329999999985
+Time for 'plugin worker 127964 code loading' 4.982834
+Time for 'plugin worker 127962 code loading' 8.282511
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.27268000000000825
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:58.345Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:58.345Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:51:58.345Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:01.591Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:01.591Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:01.591Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:04.449Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:04.450Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:04.450Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:07.997Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:07.997Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:07.997Z - [REQUEST]: 
+Time for 'plugin worker 128050 code loading' 5.414625000000001
+Time for 'plugin worker 128049 code loading' 5.479797000000001
+Time for 'plugin worker 128048 code loading' 8.335780999999997
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.1314249999999788
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:08.169Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:08.169Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:08.169Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:10.619Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:10.619Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:10.619Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:17.020Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:17.020Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:17.020Z - [REQUEST]: 
+Time for 'plugin worker 128138 code loading' 4.602829000000002
+Time for 'plugin worker 128140 code loading' 4.469853000000002
+Time for 'plugin worker 128139 code loading' 4.635136000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.2609029999999848
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:17.203Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:17.203Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:17.203Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:21.941Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:21.942Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:21.942Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:28.342Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:28.342Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:28.342Z - [REQUEST]: 
+Time for 'plugin worker 128268 code loading' 4.773857
+Time for 'plugin worker 128270 code loading' 4.602594
+Time for 'plugin worker 128269 code loading' 4.659935000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.1779679999999928
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:28.492Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:28.492Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:28.492Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:54.271Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:54.271Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:54.271Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:58.631Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:58.631Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:52:58.631Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:00.671Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:00.671Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:00.671Z - [REQUEST]: 
+Time for 'plugin worker 128380 code loading' 6.448354999999999
+Time for 'plugin worker 128381 code loading' 6.5274730000000005
+Time for 'plugin worker 128379 code loading' 9.571546000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.22621499999999628
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:00.901Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:00.901Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:00.901Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:03.430Z - [WATCHER]: Core/app.js was modified
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:03.430Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:03.430Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:09.831Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:09.831Z - [REQUEST]: Core/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:09.831Z - [REQUEST]: 
+Time for 'plugin worker 128456 code loading' 7.023031
+Time for 'plugin worker 128457 code loading' 6.274623999999999
+Time for 'plugin worker 128458 code loading' 6.041021000000001
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.21404999999998608
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:09.999Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:09.999Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:09.999Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:28.916Z - [WATCHER]: 0 file(s) created or restored, 0 file(s) modified, 0 file(s) deleted
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:32.461Z - [WATCHER]: 1 file(s) created or restored, 0 file(s) modified, 1 file(s) deleted
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:32.462Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:32.462Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:35.317Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:35.317Z - [REQUEST]: Core/api/app.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:35.317Z - [REQUEST]: Core/app.js
+Time for 'plugin worker 128595 code loading' 5.939789000000001
+Time for 'plugin worker 128594 code loading' 5.555398999999998
+Time for 'plugin worker 128593 code loading' 8.240694999999999
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.21229500000001167
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:35.500Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:35.500Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:35.500Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:40.774Z - [WATCHER]: Processing file changes in outputs
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:40.774Z - [WATCHER]: 1 file(s) created or restored, 0 file(s) modified, 1 file(s) deleted
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:40.775Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:40.875Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:40.875Z - [REQUEST]: Core/api/interactions.js
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:40.875Z - [REQUEST]: Core/api/app.js
+Time for 'plugin worker 128667 code loading' 7.752078999999998
+Time for 'plugin worker 128669 code loading' 6.0155840000000005
+Time for 'plugin worker 128668 code loading' 6.4487920000000045
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.18081200000000308
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:41.095Z - [SYNC]: collect registered sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:41.095Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.5.3 Daemon Server] - 2026-03-04T14:53:41.095Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
