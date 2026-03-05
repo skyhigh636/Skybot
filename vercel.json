@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/interactions.js",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/interactions",
-      "dest": "api/interactions.js"
+      "src": "/api",
+      "dest": "/api/index.js"
     }
   ]
 }
