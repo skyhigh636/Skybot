@@ -24,7 +24,7 @@ const activeGames = {};
 //app.use(express.json());
 
 /**
- * Interactions endpoint URL where Discord will send HTTP requests
+ * Interactions endpoint URL where Discord will send     HTTP requests
  * Parse request body and verifies incoming requests using discord-interactions package
  */
 export default function handler(req, res) {
