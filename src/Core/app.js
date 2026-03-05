@@ -40,10 +40,9 @@ export default function handler(req, res) {
      * Handle verification requests
      */
 
-    if (type === InteractionType.PING) {
-        return res.send({ type: InteractionResponseType.PONG });
+    if (req.body && req.body.type === InteractionType.PING) {
+        return res.status(200).json({ type: InteractionResponseType.PONG });
     }
-
     return verifyKeyMiddleware(process.env.PUBLIC_KEY)(req, res, async () => {
         const { id, type, data } = req.body;
 
