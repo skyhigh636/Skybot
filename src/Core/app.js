@@ -40,16 +40,14 @@ export default function handler(req, res) {
      * Handle verification requests
      */
 
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method Not Allowed' });
+    if (type === InteractionType.PING) {
+        return res.send({ type: InteractionResponseType.PONG });
     }
 
     return verifyKeyMiddleware(process.env.PUBLIC_KEY)(req, res, async () => {
         const { id, type, data } = req.body;
 
-        if (type === InteractionType.PING) {
-            return res.send({ type: InteractionResponseType.PONG });
-        }
+
 
         /**
          * Handle slash command requests
