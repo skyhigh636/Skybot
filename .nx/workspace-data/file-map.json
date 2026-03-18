@@ -1,22 +1,11 @@
 {
   "version": "6.0",
-  "nxVersion": "22.5.4",
+  "nxVersion": "22.5.3",
   "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
-    "projectFileMap": {
-      "skybot": [
-        {
-          "file": "src/packages/taskpackage/package.json",
-          "hash": "9619430196344419913"
-        }
-      ]
-    },
+    "projectFileMap": {},
     "nonProjectFiles": [
-      {
-        "file": ".env",
-        "hash": "2540039745427700200"
-      },
       {
         "file": ".gitignore",
         "hash": "7663861978715868291"
@@ -54,28 +43,12 @@
         "hash": "13951090156037600362"
       },
       {
-        "file": "lerna.json",
-        "hash": "18096745445469014555"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "2149374241915694731"
-      },
-      {
-        "file": "package.json",
-        "hash": "18003696000127004229"
-      },
-      {
         "file": "src/.gitignore",
         "hash": "577836064115312141"
       },
       {
         "file": "src/Core/app.js",
-        "hash": "9308271274474592507"
-      },
-      {
-        "file": "src/Core/app.js.bak",
-        "hash": "9582468312300226433"
+        "hash": "11917947394440414861"
       },
       {
         "file": "src/Core/commands.js",
@@ -148,6 +121,22 @@
       {
         "file": "src/jest.config.js",
         "hash": "17459222874392771925"
+      },
+      {
+        "file": "src/lerna.json",
+        "hash": "9509988360557665151"
+      },
+      {
+        "file": "src/package-lock.json",
+        "hash": "2149374241915694731"
+      },
+      {
+        "file": "src/package.json",
+        "hash": "18003696000127004229"
+      },
+      {
+        "file": "src/packages/taskpackage/package.json",
+        "hash": "7785024340294100822"
       },
       {
         "file": "src/tests/Mocks/Discordrequest.js",
