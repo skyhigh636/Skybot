@@ -2,7 +2,6 @@ import 'dotenv/config';
 import express from 'express';
 import { readFileSync } from 'fs';
 import FormData from 'form-data';
-import FormData from 'form-data';
 import {
     ButtonStyleTypes,
     InteractionResponseFlags,
@@ -17,8 +16,8 @@ import { getShuffledOptions, getResult, RollDice } from './game.js';
 //Create an express app
 const app = express();
 // Get port, or default to 3000
-//const PORT = process.env.PORT || 3000;
-//const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+
 // To keep track of our active games
 
 
@@ -35,7 +34,7 @@ export default function handler(req, res) {
 
 
 
-    app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async function
+    app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY)), async function
         (req, res) {
         // Interaction id, type and data
         const { id, type, data } = req.body;
@@ -379,31 +378,29 @@ export default function handler(req, res) {
 
                 }
 
+                // Health check endpoints (add before app.listen)
 
+                app.get('/', (req, res) => {
+                    res.send('Discord bot server is running! 🤖');
+                });
+
+                app.get('/health', (req, res) => {
+                    res.json({
+                        status: 'ok',
+                        timestamp: new Date().toISOString(),
+                        activeGames: Object.keys(activeGames).length
+                    });
+                });
+
+                // Explicitly bind to 0.0.0.0 to accept external connections
+                app.listen(PORT, '0.0.0.0', () => {
+                    console.log('Listening on port', PORT);
+                });
                 console.error('unknown interaction type', type);
                 return res.status(400).json({ error: 'unknown interaction type' });
             });
 
 
-
-            // Health check endpoints (add before app.listen)
-
-            app.get('/', (req, res) => {
-                res.send('Discord bot server is running! 🤖');
-            });
-
-            app.get('/health', (req, res) => {
-                res.json({
-                    status: 'ok',
-                    timestamp: new Date().toISOString(),
-                    activeGames: Object.keys(activeGames).length
-                });
-            });
-
-            // Explicitly bind to 0.0.0.0 to accept external connections
-            app.listen(PORT, '0.0.0.0', () => {
-                console.log('Listening on port', PORT);
-            });
 
         }
     }
