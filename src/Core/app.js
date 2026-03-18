@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import { readFileSync } from 'fs';
 import FormData from 'form-data';
+import FormData from 'form-data';
 import {
     ButtonStyleTypes,
     InteractionResponseFlags,
@@ -17,13 +18,16 @@ import { getShuffledOptions, getResult, RollDice } from './game.js';
 const app = express();
 // Get port, or default to 3000
 //const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 // To keep track of our active games
+
 
 const activeGames = {};
 
 app.use(express.json());
 
 /**
+ * Interactions endpoint URL where Discord will send     HTTP requests
  * Interactions endpoint URL where Discord will send     HTTP requests
  * Parse request body and verifies incoming requests using discord-interactions package
  */
