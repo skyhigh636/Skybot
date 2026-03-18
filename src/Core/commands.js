@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import {getRPSChoices, RollDice} from './game.js';
-import {capitalize, InstallGlobalCommands, DiscordRequest} from './utils.js';
+import {capitalize, InstallGlobalCommands, DiscordRequest} from '../utils.js';
 
 // Get the game choices from game.js
 function createCommandChoices() {
@@ -77,10 +77,25 @@ const ROLL_COMMAND = {
     contexts: [0, 2]
 };
 
-const ALL_COMMANDS = [CHALLENGE_COMMAND, ROLL_COMMAND, test];
+const CITY_BOY = {
+    name: "heckle",
+    description: "CITY BOY!",
+    options:[
+        {
+            type: 6 ,// user type
+            name: "name",
+            description: "talk to the city boy",
+            required: true,
+        }
+    ],
+    type: 1,
+    intergration_types:[0,1],
+    contexts: [0, 2]
+}
+
+const ALL_COMMANDS = [CHALLENGE_COMMAND, ROLL_COMMAND, test, CITY_BOY];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS)
-    .then(() => console.log('Commands successfully registered'))
     .catch(err => console.error('Error registering commands:', err));
 
 
