@@ -1,6 +1,6 @@
 {
   "version": "6.0",
-  "nxVersion": "22.5.3",
+  "nxVersion": "22.5.4",
   "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
@@ -8,7 +8,7 @@
     "nonProjectFiles": [
       {
         "file": ".gitignore",
-        "hash": "7663861978715868291"
+        "hash": "16764837133275898946"
       },
       {
         "file": ".idea/Skybot.iml",
@@ -44,11 +44,15 @@
       },
       {
         "file": "src/.gitignore",
-        "hash": "577836064115312141"
+        "hash": "13380904297463595052"
       },
       {
         "file": "src/Core/app.js",
-        "hash": "11917947394440414861"
+        "hash": "7104634531742520926"
+      },
+      {
+        "file": "src/Core/app.js.bak",
+        "hash": "9582468312300226433"
       },
       {
         "file": "src/Core/commands.js",
@@ -124,19 +128,19 @@
       },
       {
         "file": "src/lerna.json",
-        "hash": "9509988360557665151"
+        "hash": "15707141473506886418"
       },
       {
         "file": "src/package-lock.json",
-        "hash": "2149374241915694731"
+        "hash": "12632001722080790782"
       },
       {
         "file": "src/package.json",
-        "hash": "18003696000127004229"
+        "hash": "11005649708116794988"
       },
       {
         "file": "src/packages/taskpackage/package.json",
-        "hash": "7785024340294100822"
+        "hash": "9619430196344419913"
       },
       {
         "file": "src/tests/Mocks/Discordrequest.js",

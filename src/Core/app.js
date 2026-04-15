@@ -1,6 +1,8 @@
-import 'dotenv/config';
 import express from 'express';
+import dotenv from 'dotenv';
 import { readFileSync } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import FormData from 'form-data';
 import {
     ButtonStyleTypes,
@@ -13,6 +15,10 @@ import {
 import { getRandomEmoji, DiscordRequest } from '../utils.js';
 import { getShuffledOptions, getResult, RollDice } from './game.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
 //Create an express app
 const app = express();
 // Get port, or default to 3000
@@ -20,8 +26,6 @@ const PORT = process.env.PORT || 3000;
 
 // To keep track of our active games
 const activeGames = {};
-
-app.use(express.json());
 
 // Health check endpoints
 app.get('/', (req, res) => {
@@ -40,7 +44,7 @@ app.get('/health', (req, res) => {
  * Interactions endpoint URL where Discord will send HTTP requests
  * Parse request body and verifies incoming requests using discord-interactions package
  */
-app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async (req, res) => {
+app.post('/interactions', express.raw({ type: 'application/json' }), verifyKeyMiddleware(process.env.PUBLIC_KEY), async (req, res) => {
     // Interaction id, type and data
     const { id, type, data } = req.body;
 
@@ -159,12 +163,22 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async (re
             });
         }
 
-        if (name === 'heckle') {
+       /* if (name === 'heckle') {
             console.log("heckling");
-            const path = require('path');
-            const imagePath = path.join(__dirname, '../../images/cityboy.gif');
-            readFileSync(imagePath)
-        }
+            const imagePath = path.join(__dirname, '../images/hemmy-boi-city-boy.png');
+            readFileSync(imagePath);
+            return res.send({
+                type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                data: {
+                    flags: InteractionResponseFlags.IS_COMPONENTS_V2,
+                    components:[
+                        content: 
+                    ]
+                }
+            })
+                
+            
+        }*/
 
         console.error(`unknown command: ${name}`);
         return res.status(400).json({ error: 'unknown command' });
