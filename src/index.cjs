@@ -1,6 +1,7 @@
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 const { token } = require('./config.json');
+const express = require('express');
 const fs = require('node:fs');
 const path = require('node:path');
 // Create a new client instance
@@ -40,5 +41,20 @@ for(const file of eventFiles){
         client.on(event.name, (...args) => event.execute(...args));
     }
 }
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (_req, res) => {
+	res.status(200).send('Skybot is running.');
+});
+
+app.get('/health', (_req, res) => {
+	res.status(200).json({ status: 'ok' });
+});
+
+app.listen(port, () => {
+	console.log(`Health server listening on port ${port}`);
+});
 
 client.login(token);
