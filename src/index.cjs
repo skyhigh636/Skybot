@@ -4,7 +4,11 @@ const { token } = require('./config.json');
 const express = require('express');
 const fs = require('node:fs');
 const path = require('node:path');
-// Create a new client instance
+
+if(!token){
+    throw new Error('Missing discord bot token.')
+}
+
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection(); 
@@ -57,4 +61,7 @@ app.listen(port, () => {
 	console.log(`Health server listening on port ${port}`);
 });
 
-client.login(token);
+client.login(token).catch((error) =>{
+    console.error('Failed to login to Discord', error);
+    process.exit(1);
+});
