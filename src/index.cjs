@@ -104,7 +104,7 @@ const loginTimeout = setTimeout(() => {
   console.error('ERROR: Login promise did not resolve within 30 seconds');
   console.error('This usually means the Discord gateway connection is blocked or hanging');
   process.exit(1);
-}, 30000);
+}, 60000);
 
 client.login(token)
   .then(() => {
