@@ -1,9 +1,12 @@
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
-const { token } = require('./config.json');
 const express = require('express');
 const fs = require('node:fs');
 const path = require('node:path');
+
+require('dotenv').config(); // Load environment variables from .env file
+
+const token = process.env.DISCORD_TOKEN;
 
 if(!token){
     throw new Error('Missing discord bot token.')
