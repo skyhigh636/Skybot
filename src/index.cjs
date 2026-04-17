@@ -2,13 +2,14 @@
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 const express = require('express');
 const fs = require('node:fs');
+const { token } = require('./config.json');
+
 const path = require('node:path');
 
-const token = process.env.DISCORD_TOKEN;
-console.log('Token loaded:', token ? 'YES' : 'NO'); // Better logging
+
 
 if(!token){
-    throw new Error('Missing DISCORD_TOKEN environment variable.')
+    throw new Error('Missing discord bot token.')
 }
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
