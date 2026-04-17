@@ -12,6 +12,12 @@ module.exports = {
     async execute(interaction){
         const input = interaction.options.getString('input', true);
         const ephemeral = interaction.options.getBoolean('ephemeral') ?? false;
+
+        await interaction.reply({
+            content:input,
+            ephemeral,
+
+        });
     }
     
 }
