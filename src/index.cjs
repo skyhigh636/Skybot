@@ -10,6 +10,9 @@ const path = require('node:path');
 
 const token = process.env.DISCORD_TOKEN
 
+console.log('Token value:', token ? 'set' : 'undefined');
+console.log('All env keys:', Object.keys(process.env).filter(k => k.includes('DISCORD')));
+
 if(!token){
     throw new Error('Missing discord bot token.')
 }
