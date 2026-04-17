@@ -2,7 +2,10 @@
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const express = require('express');
 const fs = require('node:fs');
+try{
 require('dotenv').config();
+}catch(e){
+}
 const path = require('node:path');
 
 const token = process.env.DISCORD_TOKEN
