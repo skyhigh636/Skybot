@@ -71,12 +71,7 @@ app.listen(port, () => {
     console.log(`Health server listening on port ${port}`);
 });
 
-client.login(token).then(() => {
-    console.log('Login promise resolved');
-}).catch(err => {
-    console.error('Failed to login:', err.message);
-    process.exit(1);
-});
+
 
 
 // Add comprehensive debug logging
