@@ -71,15 +71,15 @@ app.get('/health', (_req, res) => {
 app.listen(port, () => {
 	console.log(`Health server listening on port ${port}`);
 });
-client.login(token).catch(err => {
+client.login(token).then(() => {
+	console.log('Login promise resolved');
+}).catch(err => {
 	console.error('Failed to login:', err.message);
 	process.exit(1);
 });
 
-process.on('SIGTERM', () => {
-	console.log('SIGTERM received, logging out...');
-	client.destroy();
-	process.exit(0);
+client.once('ready', () => {
+	console.log('Ready event fired!');
 });
 
 client.on('error', err => {
@@ -88,4 +88,10 @@ client.on('error', err => {
 
 client.on('warn', info => {
 	console.warn('Discord client warning:', info);
+});
+
+process.on('SIGTERM', () => {
+	console.log('SIGTERM received, logging out...');
+	client.destroy();
+	process.exit(0);
 });
