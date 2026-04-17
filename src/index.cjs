@@ -47,6 +47,9 @@ for(const file of eventFiles){
     }
 }
 
+client.login(token)
+
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -62,4 +65,3 @@ app.listen(port, () => {
 	console.log(`Health server listening on port ${port}`);
 });
 
-client.login(token)
