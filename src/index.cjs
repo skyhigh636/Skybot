@@ -68,10 +68,21 @@ app.get('/health', (_req, res) => {
 app.listen(port, () => {
 	console.log(`Health server listening on port ${port}`);
 });
-client.login(token)
+client.login(token).catch(err => {
+	console.error('Failed to login:', err.message);
+	process.exit(1);
+});
 
 process.on('SIGTERM', () => {
 	console.log('SIGTERM received, logging out...');
 	client.destroy();
 	process.exit(0);
+});
+
+client.on('error', err => {
+	console.error('Discord client error:', err);
+});
+
+client.on('warn', info => {
+	console.warn('Discord client warning:', info);
 });
