@@ -47,7 +47,7 @@ for(const file of eventFiles){
     }
 }
 
-client.login(token)
+
 
 
 const app = express();
@@ -64,4 +64,10 @@ app.get('/health', (_req, res) => {
 app.listen(port, () => {
 	console.log(`Health server listening on port ${port}`);
 });
+client.login(token)
 
+process.on('SIGTERM', () => {
+	console.log('SIGTERM received, logging out...');
+	client.destroy();
+	process.exit(0);
+});
