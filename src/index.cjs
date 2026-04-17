@@ -4,10 +4,12 @@ const express = require('express');
 const fs = require('node:fs');
 const path = require('node:path');
 
-require('dotenv').config(); // Load environment variables from .env file
-
 const token = process.env.DISCORD_TOKEN;
-console.log(token)
+console.log('Token loaded:', token ? 'YES' : 'NO'); // Better logging
+
+if(!token){
+    throw new Error('Missing DISCORD_TOKEN environment variable.')
+}
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
