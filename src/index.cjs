@@ -6,8 +6,6 @@ const { token } = require('./config.json');
 
 const path = require('node:path');
 
-
-
 if(!token){
     throw new Error('Missing discord bot token.')
 }
@@ -64,7 +62,4 @@ app.listen(port, () => {
 	console.log(`Health server listening on port ${port}`);
 });
 
-client.login(token).catch((error) =>{
-    console.error('Failed to login to Discord', error);
-    process.exit(1);
-});
+client.login(token)
