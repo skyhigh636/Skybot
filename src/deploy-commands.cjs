@@ -1,15 +1,16 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
+require('dotenv').config();
 
-const clientId = config.clientId ?? config.clientid;
-const guildId = config.guildId ?? config.guildid;
-const token = config.token;
+const clientId = process.env.CLIENT_ID;
+const guildId = process.env.GUILD_ID;
+const token = process.env.DISCORD_TOKEN;
 
 
 if (!clientId || !guildId || !token) {
 	throw new Error(
-		'Missing required Discord config values. Ensure config.json includes token and either clientId/guildId or clientid/guildid.',
+		'Missing required Discord config values. Ensure .env includes CLIENT_ID, GUILD_ID, and DISCORD_TOKEN.',
 	);
 }
 
