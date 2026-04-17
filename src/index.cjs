@@ -79,29 +79,35 @@ client.login(token).then(() => {
 });
 
 
-client.on('error', err => {
-    console.error('Discord client error:', err);
-});
-
-client.on('warn', info => {
-    console.warn('Discord client warning:', info);
-});
-
-process.on('SIGTERM', () => {
-    console.log('SIGTERM received, logging out...');
-    client.destroy();
-    process.exit(0);
-});
-
+// Add comprehensive debug logging
 client.on('debug', (info) => {
-  if (info.includes('Shard 0') || info.includes('gateway')) {
-    console.log('[DEBUG]', info);
-  }
+  console.log('[DEBUG]', info);
 });
 
-// Timeout handler for login
+client.on('warn', (warning) => {
+  console.warn('[WARN]', warning);
+});
+
+// Track shard events
+client.on('shardError', (error, shardId) => {
+  console.error(`[SHARD ${shardId}] Error:`, error.message);
+});
+
+client.on('shardDisconnect', (event, shardId) => {
+  console.log(`[SHARD ${shardId}] Disconnected - Code: ${event.code}, Reason: ${event.reason}`);
+});
+
+client.on('shardReady', (shardId) => {
+  console.log(`[SHARD ${shardId}] Ready!`);
+});
+
+client.on('shardResume', (shardId) => {
+  console.log(`[SHARD ${shardId}] Resumed!`);
+});
+
+// Increase timeout to 60 seconds for slow networks
 const loginTimeout = setTimeout(() => {
-  console.error('ERROR: Login promise did not resolve within 30 seconds');
+  console.error('ERROR: Login promise did not resolve within 60 seconds');
   console.error('This usually means the Discord gateway connection is blocked or hanging');
   process.exit(1);
 }, 60000);
@@ -109,16 +115,11 @@ const loginTimeout = setTimeout(() => {
 client.login(token)
   .then(() => {
     clearTimeout(loginTimeout);
-    console.log('Login promise resolved');
+    console.log('✓ Login promise resolved');
   })
   .catch(err => {
     clearTimeout(loginTimeout);
-    console.error('Failed to login:', err.message);
-    console.error('Full error:', err);
+    console.error('✗ Failed to login:', err.message);
+    console.error('Stack:', err.stack);
     process.exit(1);
   });
-
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
