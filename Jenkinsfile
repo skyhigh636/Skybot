@@ -25,12 +25,12 @@ pipeline {
         
         stage('Deploy to Render') {
             when {
-                branch 'Discord.js-branch'
+                branch 'Disc.js-branch'
             }
             steps {
                 sh '''
                     curl --request POST \\
-                        --url https://api.render.com/deploy/srv-$RENDER_SERVICE_ID?key=$RENDER_DEPLOY_KEY \\
+                        --url https://api.render.com/deploy/srv-${RENDER_SERVICE_ID}?key=${RENDER_DEPLOY_KEY} \\
                         -w "\\nHTTP Status: %{http_code}\\n"
                 '''
             }
