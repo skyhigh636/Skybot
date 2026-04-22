@@ -1,6 +1,9 @@
 const { AttachmentBuilder, MediaGalleryBuilder, MessageFlags, MediaGalleryItem, channelLink, SlashCommandBuilder } = require('discord.js')
+const path = require('path');
 
-const file = new AttachmentBuilder('src/images/hemmy-boi-city-boy.png')
+const file = new AttachmentBuilder(
+    path.join(__dirname, '../../images/hemmy-boi-city-boy.png')
+)
 module.exports = {
     data: new SlashCommandBuilder().setName('heckle').setDescription('CITY BOOOOOY!'),
 
@@ -11,10 +14,10 @@ module.exports = {
             (MediaGalleryItem) =>
                 MediaGalleryItem
                     .setDescription('city boy')
-                    .setURL('attachment://cityboy.png'),
+                    .setURL('attachment://hemmy-boi-city-boy.png'),
 
         );
-        await channel.send({
+        await interaction.reply({
             components: [heckle],
             files: [file],
             flags: MessageFlags.IsComponentsV2
