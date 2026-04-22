@@ -1,6 +1,9 @@
 const { AttachmentBuilder, MediaGalleryBuilder, MessageFlags, MediaGalleryItem, channelLink, SlashCommandBuilder } = require('discord.js')
+const path = require('path');
 
-const file = new AttachmentBuilder('/home/emmy/Skybot/src/images/hemmy-boi-city-boy.png')
+const file = new AttachmentBuilder(
+    path.join(__dirname, '../../images/hemmy-boi-city-boy.png')
+)
 module.exports = {
     data: new SlashCommandBuilder().setName('heckle').setDescription('CITY BOOOOOY!'),
 
