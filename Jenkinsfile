@@ -24,9 +24,6 @@ pipeline {
         }
         
         stage('Deploy to Render') {
-            when {
-                branch 'Disc.js-branch'
-            }
             steps {
                 sh '''
                     curl --request POST \\
