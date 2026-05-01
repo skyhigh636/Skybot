@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { execute } = require('./ping.cjs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('echo')
