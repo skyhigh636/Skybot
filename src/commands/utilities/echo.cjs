@@ -8,15 +8,19 @@ module.exports = {
         .addBooleanOption((option) =>
             option.setName('ephemeral').setDescription('only you can see this message'),
         ),
-    async execute(interaction){
+    async execute(interaction) {
         const input = interaction.options.getString('input', true);
         const ephemeral = interaction.options.getBoolean('ephemeral') ?? false;
-
+        const channel = interaction.options.getChannel('channel');
+        if (channel) {
+            await channel.send({ content: input });
+        }
+        
         await interaction.reply({
-            content:input,
+            content: input,
             ephemeral,
 
         });
     }
-    
+
 }
