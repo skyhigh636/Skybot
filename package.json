@@ -1,0 +1,20 @@
+{
+  "name": "@skyhigh/skybot",
+  "version": "1.0.0",
+  "description": "discord bot package",
+  "homepage": "https://github.com/skyhigh636/Skybot#readme",
+  "bugs": {
+    "url": "https://github.com/skyhigh636/Skybot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyhigh636/Skybot.git"
+  },
+  "license": "ISC",
+  "author": "skyhigh636",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"node --experimental-vm-modules node_modules/jest/bin/jest.js\""
+  }
+}
