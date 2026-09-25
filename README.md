@@ -1,4 +1,3 @@
-## Started as a joke, turned side project
 Developed using Discord.JS
 
 # Features
